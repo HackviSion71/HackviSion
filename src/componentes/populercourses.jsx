@@ -9,7 +9,7 @@ function PopularCourses() {
   const navigate = useNavigate();
 
   const handleViewMore = () => {
-    navigate("/viewcourses");
+    navigate("/HackviSion/viewcourses");
   };
 
   const courses = [
