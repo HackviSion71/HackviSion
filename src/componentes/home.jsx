@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import PopularCourses from "./populercourses";
 
 function Home() {
-
   const [students, setStudents] = useState(0);
   const [courses, setCourses] = useState(0);
   const [experience, setExperience] = useState(0);
@@ -47,6 +46,11 @@ function Home() {
 
     return () => observer.disconnect();
   }, []);
+  
+  // Use Vite base-aware path for public asset (back image is in public/)
+  const baseUrl = import.meta.env.BASE_URL || "/";
+  const heroBg = `${baseUrl}back_img.png`;
+
   return (
     <>
       {/* Hero Section */}
@@ -54,7 +58,7 @@ function Home() {
         className="position-relative text-center text-light d-flex align-items-center justify-content-center"
         style={{
           height: "100vh",
-          backgroundImage: `url("back_img.png")`,
+          backgroundImage: `url("${heroBg}")`,
           backgroundSize: "100% auto",
           backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
@@ -93,9 +97,8 @@ function Home() {
 
       {/* Popular Courses Section */}
       <section className="py-5 bg-light text-center">
-        <PopularCourses/>
+        <PopularCourses />
       </section>
-
 
       <section className="py-5 bg-light text-center" ref={sectionRef}>
         <div className="container">
