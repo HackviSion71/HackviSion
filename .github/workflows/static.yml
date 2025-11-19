@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -24,25 +24,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js (use Node 20)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'    # Vite requires >=20.19
+
+      - name: Show node/npm versions
+        run: |
+          node -v
+          npm -v
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build project
+      - name: Build (production)
         run: npm run build
+
+      - name: Copy index.html to 404.html for SPA fallback
+        run: |
+          if [ -f ./dist/index.html ]; then
+            cp ./dist/index.html ./dist/404.html
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"   # IMPORTANT: Vite build output folder
+          path: ./dist
 
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
