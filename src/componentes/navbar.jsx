@@ -1,47 +1,72 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import logo from "../assets/logo.jpg";
 import logo from "../assets/image.png";
 
 function Navbar() {
+  // Function to close mobile menu
+  const closeNavbar = () => {
+    const navbar = document.getElementById("navbarNav");
+    if (navbar && navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  };
+
   return (
     <>
       <nav
         className="navbar navbar-expand-lg navbar-dark fw-bold sticky-top py-2 shadow-sm"
         style={{
           minHeight: "70px",
-          backgroundColor: "#0A3D62", 
+          backgroundColor: "#0A3D62",
         }}
       >
         <div className="container">
+
           {/* Brand Logo */}
-          <NavLink className="navbar-brand d-flex align-items-center" to="/">
+          
             <img
               src={logo}
               alt="HackVision Logo"
-              width="140"
-              height="60"
-              className="d-inline-block align-text-top me-2 rounded-3"
+              className="d-inline-block align-text-top me-2 rounded-3 img-fluid"
               style={{
+                width: "140px",
+                height: "60px",
                 objectFit: "cover",
-                // backgroundColor: "#fff",
                 padding: "4px",
                 borderRadius: "8px",
+                maxWidth: "100%",
               }}
             />
+
+            <style>
+              {`
+                @media (max-width: 576px) {
+                  .navbar-brand img {
+                    width: 110px !important;
+                    height: 48px !important;
+                  }
+                }
+                @media (max-width: 400px) {
+                  .navbar-brand img {
+                    width: 95px !important;
+                    height: 40px !important;
+                  }
+                }
+              `}
+            </style>
+
             <span
-              className="fs-4 ms-2"
+              className="ms-2 fw-bold fs-4 fs-md-4 fs-sm-5 fs-6"
               style={{
-                color: "#1B9CFC", 
-                fontWeight: "700",
+                color: "#1B9CFC",
                 letterSpacing: "0.5px",
               }}
             >
               HackviSion Academy
             </span>
-          </NavLink>
+          
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle Button */}
           <button
             className="navbar-toggler border-0"
             type="button"
@@ -55,27 +80,22 @@ function Navbar() {
           </button>
 
           {/* Navigation Links */}
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
-          >
+          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav text-center">
+
               <li className="nav-item mx-2">
-                <NavLink
-                  className="nav-link"
-                  to="/"
+                <NavLink className="nav-link" to="/HackviSion/" onClick={closeNavbar}
                   style={({ isActive }) => ({
-                    color: isActive ? "#FFC312" : "#ECF0F1", 
+                    color: isActive ? "#FFC312" : "#ECF0F1",
                     transition: "0.3s",
                   })}
                 >
                   Home
                 </NavLink>
               </li>
+
               <li className="nav-item mx-2">
-                <NavLink
-                  className="nav-link"
-                  to="/viewcourses"
+                <NavLink className="nav-link" to="/HackviSion/viewcourses" onClick={closeNavbar}
                   style={({ isActive }) => ({
                     color: isActive ? "#FFC312" : "#ECF0F1",
                     transition: "0.3s",
@@ -84,10 +104,9 @@ function Navbar() {
                   Courses
                 </NavLink>
               </li>
+
               <li className="nav-item mx-2">
-                <NavLink
-                  className="nav-link"
-                  to="/features"
+                <NavLink className="nav-link" to="/HackviSion/features" onClick={closeNavbar}
                   style={({ isActive }) => ({
                     color: isActive ? "#FFC312" : "#ECF0F1",
                     transition: "0.3s",
@@ -96,10 +115,9 @@ function Navbar() {
                   Features
                 </NavLink>
               </li>
+
               <li className="nav-item mx-2">
-                <NavLink
-                  className="nav-link"
-                  to="/testimonials"
+                <NavLink className="nav-link" to="/HackviSion/testimonials" onClick={closeNavbar}
                   style={({ isActive }) => ({
                     color: isActive ? "#FFC312" : "#ECF0F1",
                     transition: "0.3s",
@@ -108,10 +126,9 @@ function Navbar() {
                   Testimonials
                 </NavLink>
               </li>
+
               <li className="nav-item mx-2">
-                <NavLink
-                  className="nav-link"
-                  to="/about"
+                <NavLink className="nav-link" to="/HackviSion/about" onClick={closeNavbar}
                   style={({ isActive }) => ({
                     color: isActive ? "#FFC312" : "#ECF0F1",
                     transition: "0.3s",
@@ -120,8 +137,10 @@ function Navbar() {
                   About
                 </NavLink>
               </li>
+
             </ul>
           </div>
+
         </div>
       </nav>
     </>
