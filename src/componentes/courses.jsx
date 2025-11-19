@@ -2,7 +2,6 @@ import React from "react";
 import CourseCard from "./coursecard";
 import erpImage from "../assets/CCNA.jpg";
 import linuxImage from "../assets/Linux.jpg";
-// updated import name to match the renamed file
 import cyberImage from "../assets/cyber_security.jpg";
 import AWSimg from "../assets/AWS_images.png";
 import Asurimg from "../assets/Azure-Images.png";
