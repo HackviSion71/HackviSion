@@ -3,8 +3,8 @@ import CourseCard from "./coursecard";
 import erpImage from "../assets/CCNA.jpg";
 import linuxImage from "../assets/Linux.jpg";
 import cyberImage from "../assets/cyber_security.jpg";
-import AWSimg from "../assets/AWS_images.png";
-import Asurimg from "../assets/Azure-Images.png";
+import aWSimg from "../assets/AWS_images.png";
+import asurimg from "../assets/Azure-Images.png";
 
 function Courses() {
   const courses = [
@@ -48,7 +48,7 @@ function Courses() {
       </>
     },
     {
-      image: AWSimg,
+      image: aWSimg,
       title: "AWS (Amazon Web Services – Cloud Practitioner & Solutions Architect)",
       description:
         "Learn core cloud concepts, AWS services, EC2, S3, IAM, VPC, Load Balancing, Auto Scaling, RDS, and hands-on lab scenarios to master AWS Cloud.",
@@ -61,7 +61,7 @@ function Courses() {
       </>
     },
     {
-      image: Asurimg,
+      image: asurimg,
       title: "Azure (Microsoft Azure – Fundamentals & Solutions Architect)",
       description:
         "Learn core cloud concepts, Azure services, Virtual Machines, Storage, Azure AD, Virtual Networks, Load Balancer, App Services, SQL Database, and hands-on lab scenarios to master Microsoft Azure.",
