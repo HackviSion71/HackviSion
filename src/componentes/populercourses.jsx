@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CourseCard from "./coursecard";
 import erpImage from "../assets/CCNA.jpg";
 import linuxImage from "../assets/Linux.jpg";
-import cyberImage from "../assets/cyber security.jpg";
+import cyberImage from "../assets/cyber_security.jpg";
 
 function PopularCourses() {
   const navigate = useNavigate();
