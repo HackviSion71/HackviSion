@@ -1,4 +1,7 @@
 import React from "react";
+import karan from "../assets/karan_img.jpeg";
+import mahesh from "../assets/mahesh_img.jpeg";
+import rohit from "../assets/rohit_img.jpeg";
 
 function Testimonials() {
   const testimonials = [
@@ -9,7 +12,7 @@ function Testimonials() {
       feedback:
         "HackviSion Academy's CCNA course helped me build strong networking fundamentals. The instructor explained every concept clearly and practically.",
       image:
-        "karan_img.jpeg",
+        karan,
     },
     {
       id: 2,
@@ -18,7 +21,7 @@ function Testimonials() {
       feedback:
         "The Linux course was very practical and hands-on. I gained real system admin experience and confidence to manage Linux servers.",
       image:
-        "mahesh_img.jpeg",
+        mahesh,
     },
     {
       id: 3,
@@ -27,7 +30,7 @@ function Testimonials() {
       feedback:
         "Excellent course with real-world examples and labs. I learned about ethical hacking, firewalls, and security tools in depth.",
       image:
-        "rohit_img.jpeg",
+        rohit,
     },
   ];
 
