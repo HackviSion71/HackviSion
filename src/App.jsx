@@ -19,12 +19,12 @@ function App() {
         <ScrollToTop/>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/viewcourses" element={<Courses/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/testimonials" element={<Testimonials/>}/>
-          <Route path="/features" element={<Features/>}/>
-          <Route path="/enroll" element={<EnrollForm/>}/>
+          <Route path="/HackviSion/" element={<Home/>}/>
+          <Route path="/HackviSion/viewcourses" element={<Courses/>}/>
+          <Route path="/HackviSion/about" element={<About/>}/>
+          <Route path="/HackviSion/testimonials" element={<Testimonials/>}/>
+          <Route path="/HackviSion/features" element={<Features/>}/>
+          <Route path="/HackviSion/enroll" element={<EnrollForm/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
