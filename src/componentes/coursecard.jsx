@@ -38,7 +38,7 @@ function CourseCard({ image, title, description, features }) {
         {/* Push button to bottom */}
         <div className="mt-auto">
           <NavLink
-            to="/HackviSion/enroll"
+            to="/enroll"
             className="btn fw-bold text-white mt-3 px-4 read-more-btn"
             style={{
               backgroundColor: "#3a4be9",
