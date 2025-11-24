@@ -87,7 +87,7 @@ function EnrollForm() {
 
             if (data.success) {
                 setAlert({
-                    message: "🎉 Submitted Successfully!.",
+                    message: "Thank you! Your enrollment request was submitted successfully. We’ll connect with you soon. For any urgent inquiry, please contact: 9422763574",
                     type: "success",
                 });
                 setFormData({ fullName: "", email: "", phone: "", course: "" });
@@ -96,7 +96,7 @@ function EnrollForm() {
                     navigate("/viewcourses");
                 }, 3000);
             } else {
-                setAlert({ message: "❌ Failed to submit. Please try again later.", type: "error" });
+                setAlert({ message: "❌ Failed to Enroll. Please try again later.", type: "error" });
             }
         } catch (error) {
             console.error(error);
