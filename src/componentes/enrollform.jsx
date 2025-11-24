@@ -93,7 +93,7 @@ function EnrollForm() {
                 setFormData({ fullName: "", email: "", phone: "", course: "" });
                 setErrors({});
                 setTimeout(() => {
-                    navigate("/HackviSion/viewcourses");
+                    navigate("/viewcourses");
                 }, 3000);
             } else {
                 setAlert({ message: "❌ Failed to submit. Please try again later.", type: "error" });
