@@ -22,7 +22,17 @@ function EnrollForm() {
         "AWS"
     ];
 
-    // ✅ Validation function
+    // Handle Alert OK Click (NEW)
+    const handleAlertOk = () => {
+        const alertType = alert.type;
+        setAlert({ message: "", type: "" });
+
+        if (alertType === "success") {
+            navigate("/viewcourses");
+        }
+    };
+
+    // Validation function
     const validate = () => {
         let newErrors = {};
 
@@ -56,7 +66,7 @@ function EnrollForm() {
         return Object.keys(newErrors).length === 0;
     };
 
-    // ✅ Send form data via Web3Forms
+    // Send form data via Web3Forms
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -66,13 +76,12 @@ function EnrollForm() {
         setAlert({ message: "", type: "" });
 
         const formDataToSend = new FormData();
-        formDataToSend.append("access_key", "dee8cc48-b278-46ef-85a0-a8862e0bbdb4"); // 🔑 replace with your actual key
+        formDataToSend.append("access_key", "dee8cc48-b278-46ef-85a0-a8862e0bbdb4");
         formDataToSend.append("Full Name", formData.fullName);
         formDataToSend.append("Email", formData.email);
         formDataToSend.append("Phone", formData.phone);
         formDataToSend.append("Course", formData.course);
 
-        // 💬 Custom subject & sender
         formDataToSend.append("subject", `New Enrollment for ${formData.course}`);
         formDataToSend.append("from_name", "HackVision");
 
@@ -87,14 +96,12 @@ function EnrollForm() {
 
             if (data.success) {
                 setAlert({
-                    message: "Thank you! Your enrollment request was submitted successfully. We’ll connect with you soon. For any urgent inquiry, please contact: 9422763574",
+                    message:
+                        "Thank you! Your enrollment request was submitted successfully. We’ll connect with you soon. For any urgent inquiry, please contact: 9422763574",
                     type: "success",
                 });
                 setFormData({ fullName: "", email: "", phone: "", course: "" });
                 setErrors({});
-                setTimeout(() => {
-                    navigate("/viewcourses");
-                }, 3000);
             } else {
                 setAlert({ message: "❌ Failed to Enroll. Please try again later.", type: "error" });
             }
@@ -116,8 +123,7 @@ function EnrollForm() {
                         <label className="enroll-label">Full Name</label>
                         <input
                             type="text"
-                            className={`form-control enroll-input ${errors.fullName ? "is-invalid" : ""
-                                }`}
+                            className={`form-control enroll-input ${errors.fullName ? "is-invalid" : ""}`}
                             placeholder="Enter your full name"
                             value={formData.fullName}
                             onChange={(e) =>
@@ -134,8 +140,7 @@ function EnrollForm() {
                         <label className="enroll-label">Email</label>
                         <input
                             type="email"
-                            className={`form-control enroll-input ${errors.email ? "is-invalid" : ""
-                                }`}
+                            className={`form-control enroll-input ${errors.email ? "is-invalid" : ""}`}
                             placeholder="Enter your email"
                             value={formData.email}
                             onChange={(e) =>
@@ -152,8 +157,7 @@ function EnrollForm() {
                         <label className="enroll-label">Phone Number</label>
                         <input
                             type="text"
-                            className={`form-control enroll-input ${errors.phone ? "is-invalid" : ""
-                                }`}
+                            className={`form-control enroll-input ${errors.phone ? "is-invalid" : ""}`}
                             placeholder="Enter 10-digit phone number"
                             value={formData.phone}
                             onChange={(e) =>
@@ -169,8 +173,7 @@ function EnrollForm() {
                     <div className="mb-4">
                         <label className="enroll-label">Select Course</label>
                         <select
-                            className={`form-select enroll-select ${errors.course ? "is-invalid" : ""
-                                }`}
+                            className={`form-select enroll-select ${errors.course ? "is-invalid" : ""}`}
                             value={formData.course}
                             onChange={(e) =>
                                 setFormData({ ...formData, course: e.target.value })
@@ -208,7 +211,7 @@ function EnrollForm() {
             {alert.message && (
                 <div className={`alert-box ${alert.type}`}>
                     <p>{alert.message}</p>
-                    <button onClick={() => setAlert({ message: "", type: "" })}>OK</button>
+                    <button onClick={handleAlertOk}>OK</button>
                 </div>
             )}
         </section>
