@@ -103,31 +103,31 @@ function Navbar() {
             <ul className="navbar-nav text-center">
 
               <li className="nav-item mx-2">
-                <NavLink className="nav-link" to="/HackviSion/" onClick={closeNavbar}>
+                <NavLink className="nav-link" to="/" onClick={closeNavbar}>
                   Home
                 </NavLink>
               </li>
 
               <li className="nav-item mx-2">
-                <NavLink className="nav-link" to="/HackviSion/viewcourses" onClick={closeNavbar}>
+                <NavLink className="nav-link" to="/viewcourses" onClick={closeNavbar}>
                   Courses
                 </NavLink>
               </li>
 
               <li className="nav-item mx-2">
-                <NavLink className="nav-link" to="/HackviSion/features" onClick={closeNavbar}>
+                <NavLink className="nav-link" to="/features" onClick={closeNavbar}>
                   Features
                 </NavLink>
               </li>
 
               <li className="nav-item mx-2">
-                <NavLink className="nav-link" to="/HackviSion/testimonials" onClick={closeNavbar}>
+                <NavLink className="nav-link" to="/testimonials" onClick={closeNavbar}>
                   Testimonials
                 </NavLink>
               </li>
 
               <li className="nav-item mx-2">
-                <NavLink className="nav-link" to="/HackviSion/about" onClick={closeNavbar}>
+                <NavLink className="nav-link" to="/about" onClick={closeNavbar}>
                   About
                 </NavLink>
               </li>
