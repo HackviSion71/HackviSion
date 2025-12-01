@@ -31,7 +31,7 @@ function Footer() {
                 Contact
               </h5>
               <p style={{ color: "#ECF0F1" }}>
-                Email: sahilsasane@hackvison.com
+                Email: info@hackvison.com
                 <br />
                 Phone: +91 9422763576
               </p>
